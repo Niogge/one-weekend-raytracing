@@ -1,5 +1,7 @@
 #pragma once
 #include "vec3.h"
+#include "FWDUtils.h"
+BEGIN_NAMESPACE
 class Ray
 {
 public:
@@ -17,3 +19,4 @@ public:
 	vec3 dir;
 };
 
+END_NAMESPACE

@@ -145,11 +145,14 @@
   <ItemGroup>
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RTOneWeekend.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="FWDUtils.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="vec3.h" />
     <ClInclude Include="IOUtils.h" />
     <ClInclude Include="stb_image.h" />

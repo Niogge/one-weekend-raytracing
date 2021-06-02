@@ -1,16 +1,16 @@
 #include "Ray.h"
 
-point3 Ray::origin() const
+point3 USE_NAMESPACE(Ray)::origin() const
 {
     return orig;
 }
 
-vec3 Ray::direction() const
+vec3 USE_NAMESPACE(Ray)::direction() const
 {
     return dir;
 }
 
-point3 Ray::at(double t) const
+point3 USE_NAMESPACE(Ray)::at(double t) const
 {
     return orig + t * dir;
 }
