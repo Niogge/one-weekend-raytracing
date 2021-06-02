@@ -1,6 +1,6 @@
 #pragma once
 
-#include "vec3.h"
+#include "Math/vec3.h"
 #include <vector>
 void write_color(RGBColor color, std::vector<uint8_t>& dest)
 {

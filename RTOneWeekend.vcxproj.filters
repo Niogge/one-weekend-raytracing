@@ -5,59 +5,65 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Utils">
+    <Filter Include="Source Files\Utils">
       <UniqueIdentifier>{2c16890f-c464-4c3b-86af-1b96c7bbbe2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\Math">
+    <Filter Include="Source Files\Utils\Math">
       <UniqueIdentifier>{59530fd1-0ab7-4b22-95c9-939169614fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hittables">
+      <UniqueIdentifier>{45d423ac-44d7-4aaf-b505-c1ec4a457c50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Includes">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RTOneWeekend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vec3.cpp">
-      <Filter>Utils\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Ray.cpp">
-      <Filter>Utils\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Sphere.cpp">
-      <Filter>Utils\Math</Filter>
-    </ClCompile>
+    <ClInclude Include="src\Includes\stb_image_write.h">
+      <Filter>Source Files\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Includes\stb_image.h">
+      <Filter>Source Files\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\FWDUtils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\IOUtils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\Color.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\Math\vec3.h">
+      <Filter>Source Files\Utils\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\Math\Ray.h">
+      <Filter>Source Files\Utils\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hittables\Sphere.h">
+      <Filter>Source Files\Hittables</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hittables\Hittable.h">
+      <Filter>Source Files\Hittables</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image_write.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IOUtils.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="vec3.h">
-      <Filter>Utils\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Ray.h">
-      <Filter>Utils\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Sphere.h">
-      <Filter>Utils\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="FWDUtils.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
+    <ClCompile Include="src\Utils\Math\vec3.cpp">
+      <Filter>Source Files\Utils\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils\Math\Ray.cpp">
+      <Filter>Source Files\Utils\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RTOneWeekend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hittables\Sphere.cpp">
+      <Filter>Source Files\Hittables</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

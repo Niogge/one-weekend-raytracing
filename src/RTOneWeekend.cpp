@@ -2,15 +2,15 @@
 
 #include <iostream>
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "Includes/stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
+#include "Includes/stb_image_write.h"
 #include <vector>
-#include "IOUtils.h"
-#include "Color.h"
-#include "Ray.h"
-#include "FWDUtils.h"
-#include "Sphere.h"
+#include "Utils/IOUtils.h"
+#include "Utils/Color.h"
+#include "Utils/Math/Ray.h"
+#include "Utils/FWDUtils.h"
+#include "Hittables/Sphere.h"
 
 
 #define IMG_CHANNELS 3
@@ -19,14 +19,15 @@ BEGIN_NAMESPACE
 
 RGBColor ray_color(const Ray& r, const Sphere& s)
 {
-	auto t = s.ray_sphere_intersection(r);
-	if (t>0.0)
+	
+	hit_record rec;
+	if (s.hit(r, 0, 10000, rec))
 	{
-		vec3 N = (r.at(t) - vec3(0, 0, -1)).normalized();
-		return 0.5*RGBColor(N.x()+1,N.y()+1, N.z()+1);
+		vec3 N = rec.normal.normalized();
+		return 0.5 * RGBColor(N.x() + 1, N.y() + 1, N.z() + 1);
 	}
 	vec3 unit_direction = r.direction().normalized();
-	t = 0.5 * (unit_direction.y() + 1.0);
+	auto t = 0.5 * (unit_direction.y() + 1.0);
 	return (1.0 - t) * RGBColor(1.0, 1.0, 1.0) + t * RGBColor(0.5, 0.7, 1.0);
 }
 int main_rt()
@@ -51,18 +52,19 @@ int main_rt()
 	Sphere s(center, 0.5);
 	for (int j = image_height - 1; j >= 0; --j)
 	{
-		PROGRESS_CERR("Scanlines Remaining", j)
-			for (int i = 0; i < image_width; i++)
-			{
-				auto u = double(i) / (image_width - 1);
-				auto v = double(j) / (image_height - 1);
-				Ray r = Ray(origin, lower_left_corner + u * horizontal + v * vertical);
-				RGBColor pixel_color = ray_color(r, s);
-				write_color(pixel_color, pixel_data);
-			}
+		//PROGRESS_CERR("Scanlines Remaining", j);
+		PROGRESS_PERCENTAGE("Scanline progress", image_height - j, image_height);
+		for (int i = 0; i < image_width; i++)
+		{
+			auto u = double(i) / (image_width - 1);
+			auto v = double(j) / (image_height - 1);
+			Ray r = Ray(origin, lower_left_corner + u * horizontal + v * vertical);
+			RGBColor pixel_color = ray_color(r, s);
+			write_color(pixel_color, pixel_data);
+		}
 	}
 	stbi_write_png("test.png", image_width, image_height, IMG_CHANNELS, pixel_data.data(), IMG_CHANNELS * image_width);
-	PROGRESS_CERR_COMPLETE;
+	PROGRESS_COMPLETE;
 	return 0;
 }
 

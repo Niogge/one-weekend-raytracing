@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hittables\Hittable.h" />
+    <ClInclude Include="src\Hittables\Sphere.h" />
+    <ClInclude Include="src\Includes\stb_image.h" />
+    <ClInclude Include="src\Includes\stb_image_write.h" />
+    <ClInclude Include="src\Utils\Color.h" />
+    <ClInclude Include="src\Utils\FWDUtils.h" />
+    <ClInclude Include="src\Utils\IOUtils.h" />
+    <ClInclude Include="src\Utils\Math\Ray.h" />
+    <ClInclude Include="src\Utils\Math\vec3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Hittables\Sphere.cpp" />
+    <ClCompile Include="src\RTOneWeekend.cpp" />
+    <ClCompile Include="src\Utils\Math\Ray.cpp" />
+    <ClCompile Include="src\Utils\Math\vec3.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -142,22 +159,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Ray.cpp" />
-    <ClCompile Include="RTOneWeekend.cpp" />
-    <ClCompile Include="Sphere.cpp" />
-    <ClCompile Include="vec3.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="FWDUtils.h" />
-    <ClInclude Include="Ray.h" />
-    <ClInclude Include="Sphere.h" />
-    <ClInclude Include="vec3.h" />
-    <ClInclude Include="IOUtils.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="stb_image_write.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
