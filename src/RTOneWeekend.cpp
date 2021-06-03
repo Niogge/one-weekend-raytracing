@@ -55,7 +55,7 @@ int main_rt()
 {
 	//target image
 	const auto aspect_ratio = 16.0 / 9.0;
-	const int image_width = 1920;
+	const int image_width = 960;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
 	const int sample_per_pixel = 100;
 	const int max_depth = 50;
@@ -67,7 +67,7 @@ int main_rt()
 	world.add(std::make_shared<Sphere>(s));
 	//purple metal sphere
 	vec3 center2(0.5, 0.1, -1.1);
-	Sphere s2(center2, 0.5, make_shared<metal>(RGBColor(0.83, 0.59, 0.98)));
+	Sphere s2(center2, 0.5, make_shared<metal>(RGBColor(0.83, 0.59, 0.98), 0.3));
 	world.add(std::make_shared<Sphere>(s2));
 	//full glass sphere
 	vec3 center3(-0.1, 0.2, -0.5);
