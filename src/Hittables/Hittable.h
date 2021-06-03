@@ -1,12 +1,14 @@
 #pragma once
-#include "../Utils/Math/vec3.h"
+#include "../Utils/IOUtils.h"
 #include "../Utils/Math/Ray.h"
-#include "../Utils/FWDUtils.h"
+#include <memory>
 BEGIN_NAMESPACE
+FWD_DECL(material)
 struct hit_record
 {
 	point3 p;
 	vec3 normal;
+	std::shared_ptr<material> mat_ptr;
 	double t;
 	bool front_face;
 

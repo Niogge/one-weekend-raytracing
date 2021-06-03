@@ -1,5 +1,4 @@
 #include "vec3.h"
-
 double vec3::x() const
 {
 	return e[0];
@@ -38,6 +37,7 @@ vec3& vec3::operator+=(const vec3& v)
 	return *this;
 }
 
+
 vec3& vec3::operator*=(const double t)
 {
 	e[0] *= t;
@@ -73,4 +73,11 @@ void vec3::normalize()
 	e[1] /= this->length();
 	e[2] /= this->length();
 }
+
+bool vec3::near_zero()
+{
+	const auto s = 1e-8;
+	return (fabs(e[0]) < s) && (fabs(e[1]) < s) && (fabs(e[2]) < s);
+}
+
 

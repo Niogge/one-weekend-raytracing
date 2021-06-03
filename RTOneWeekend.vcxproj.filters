@@ -22,6 +22,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Source Files\Materials">
+      <UniqueIdentifier>{e5458b60-44e2-4a7a-aa7b-ee49a34969ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Includes\stb_image_write.h">
@@ -51,6 +54,30 @@
     <ClInclude Include="src\Hittables\Hittable.h">
       <Filter>Source Files\Hittables</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hittables\HittableList.h">
+      <Filter>Source Files\Hittables</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\rand.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Materials\Material.h">
+      <Filter>Source Files\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Materials\Lambertian.h">
+      <Filter>Source Files\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Materials\Metal.h">
+      <Filter>Source Files\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\Math\MathUtils.h">
+      <Filter>Source Files\Utils\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Materials\Dielectric.h">
+      <Filter>Source Files\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utils\Math\vec3.cpp">
@@ -64,6 +91,21 @@
     </ClCompile>
     <ClCompile Include="src\Hittables\Sphere.cpp">
       <Filter>Source Files\Hittables</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hittables\HittableList.cpp">
+      <Filter>Source Files\Hittables</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Materials\Lambertian.cpp">
+      <Filter>Source Files\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Materials\Metal.cpp">
+      <Filter>Source Files\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Materials\Dielectric.cpp">
+      <Filter>Source Files\Materials</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

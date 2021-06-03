@@ -19,18 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Hittables\Hittable.h" />
+    <ClInclude Include="src\Hittables\HittableList.h" />
     <ClInclude Include="src\Hittables\Sphere.h" />
     <ClInclude Include="src\Includes\stb_image.h" />
     <ClInclude Include="src\Includes\stb_image_write.h" />
+    <ClInclude Include="src\Materials\Dielectric.h" />
+    <ClInclude Include="src\Materials\Lambertian.h" />
+    <ClInclude Include="src\Materials\Material.h" />
+    <ClInclude Include="src\Materials\Metal.h" />
     <ClInclude Include="src\Utils\Color.h" />
     <ClInclude Include="src\Utils\FWDUtils.h" />
     <ClInclude Include="src\Utils\IOUtils.h" />
+    <ClInclude Include="src\Utils\Math\MathUtils.h" />
     <ClInclude Include="src\Utils\Math\Ray.h" />
     <ClInclude Include="src\Utils\Math\vec3.h" />
+    <ClInclude Include="src\Utils\rand.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Hittables\HittableList.cpp" />
     <ClCompile Include="src\Hittables\Sphere.cpp" />
+    <ClCompile Include="src\Materials\Dielectric.cpp" />
+    <ClCompile Include="src\Materials\Lambertian.cpp" />
+    <ClCompile Include="src\Materials\Metal.cpp" />
     <ClCompile Include="src\RTOneWeekend.cpp" />
     <ClCompile Include="src\Utils\Math\Ray.cpp" />
     <ClCompile Include="src\Utils\Math\vec3.cpp" />
