@@ -61,15 +61,22 @@ int main_rt()
 	const int max_depth = 50;
 	//world 
 	hittable_list world;
+	//a simple greenish sphere
 	vec3 center(-0.5, -0.1, -1.0);
 	Sphere s(center, 0.5, make_shared<lambertian>(RGBColor(93./255,240./255,67./255)));
 	world.add(std::make_shared<Sphere>(s));
+	//purple metal sphere
 	vec3 center2(0.5, 0.1, -1.1);
 	Sphere s2(center2, 0.5, make_shared<metal>(RGBColor(0.83, 0.59, 0.98)));
 	world.add(std::make_shared<Sphere>(s2));
+	//full glass sphere
 	vec3 center3(-0.1, 0.2, -0.5);
-	Sphere s3(center3, 0.12, make_shared<dielectric>(RGBColor(1,1,1),1.5));
+	Sphere s3(center3, 0.12, make_shared<dielectric>(RGBColor(0.8,0.8,1),1.5));
 	world.add(std::make_shared<Sphere>(s3));
+	//hollow glass sphere (the trick is using a negative radius to flip the normals)
+	vec3 center4(0, -0.05, -0.2);
+	Sphere s4(center4, -0.05, make_shared<dielectric>(RGBColor(1, 1, 1), 1.2));
+	world.add(std::make_shared<Sphere>(s4));
 	//camera
 	camera cam(90, aspect_ratio);
 

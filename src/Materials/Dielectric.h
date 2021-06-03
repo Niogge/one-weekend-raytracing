@@ -9,5 +9,7 @@ public:
 public:
 	RGBColor albedo;
 	double index_refraction;
+private:
+	static double reflectance(double cosine, double ref_idx);
 };
 END_NAMESPACE
