@@ -55,28 +55,21 @@ int main_rt()
 {
 	//target image
 	const auto aspect_ratio = 16.0 / 9.0;
-	const int image_width = 960;
+	const int image_width = 400;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
 	const int sample_per_pixel = 100;
 	const int max_depth = 50;
 	//world 
 	hittable_list world;
-	//a simple greenish sphere
-	vec3 center(-0.5, -0.1, -1.0);
-	Sphere s(center, 0.5, make_shared<lambertian>(RGBColor(93./255,240./255,67./255)));
-	world.add(std::make_shared<Sphere>(s));
-	//purple metal sphere
-	vec3 center2(0.5, 0.1, -1.1);
-	Sphere s2(center2, 0.5, make_shared<metal>(RGBColor(0.83, 0.59, 0.98), 0.3));
-	world.add(std::make_shared<Sphere>(s2));
-	//full glass sphere
-	vec3 center3(-0.1, 0.2, -0.5);
-	Sphere s3(center3, 0.12, make_shared<dielectric>(RGBColor(0.8,0.8,1),1.5));
-	world.add(std::make_shared<Sphere>(s3));
-	//hollow glass sphere (the trick is using a negative radius to flip the normals)
-	vec3 center4(0, -0.05, -0.2);
-	Sphere s4(center4, -0.05, make_shared<dielectric>(RGBColor(1, 1, 1), 1.2));
-	world.add(std::make_shared<Sphere>(s4));
+
+	shared_ptr<material> metal_purple = make_shared<metal>(RGBColor(0.83, 0.59, 0.98), 0.3);
+	shared_ptr<material> lambert_green = make_shared<lambertian>(RGBColor(93. / 255, 240. / 255, 67. / 255));
+	shared_ptr<material> full_glass = make_shared<dielectric>(RGBColor(0.8, 0.8, 1), 1.5);
+	shared_ptr<material> hollow_glass = make_shared<dielectric>(RGBColor(1, 1, 1), 1.2);// the hollowness is with the negative radius of the sphere 
+	world.add(std::make_shared<Sphere>(vec3(-0.5,-0.1,-1.0),0.5, lambert_green));
+	world.add(std::make_shared<Sphere>(vec3(0.5, 0.1, -1.1), 0.5, metal_purple));
+	world.add(std::make_shared<Sphere>(vec3(-0.1, 0.2, -0.5), 0.12, full_glass));
+	world.add(std::make_shared<Sphere>(vec3(0, -0.05, -0.2), -0.05, hollow_glass));
 	//camera
 	camera cam(90, aspect_ratio);
 
