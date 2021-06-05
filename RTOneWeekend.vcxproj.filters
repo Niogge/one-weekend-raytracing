@@ -78,6 +78,12 @@
     <ClInclude Include="src\Materials\Dielectric.h">
       <Filter>Source Files\Materials</Filter>
     </ClInclude>
+    <ClInclude Include="src\Includes\wobj.h">
+      <Filter>Source Files\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hittables\Model.h">
+      <Filter>Source Files\Hittables</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utils\Math\vec3.cpp">
@@ -106,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="src\Materials\Dielectric.cpp">
       <Filter>Source Files\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hittables\Model.cpp">
+      <Filter>Source Files\Hittables</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

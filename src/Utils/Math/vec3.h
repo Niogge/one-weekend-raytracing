@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include "../rand.h"
+#include "../../Includes/wobj.h"
 
 using std::sqrt;
 
@@ -132,5 +133,9 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat)
 inline vec3 operator*(const vec3& u, const vec3& v)
 {
 	return vec3(u.e[0] * v.e[0], u.e[1] * v.e[1], u.e[2] * v.e[2]);
+}
+inline vec3 from_wobj_to_vec3(const wobj_float3& f3)
+{
+	return vec3(f3.x, f3.y, f3.z);
 }
 #endif // !VEC3_H
