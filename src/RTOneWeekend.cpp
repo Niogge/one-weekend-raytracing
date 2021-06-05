@@ -55,7 +55,7 @@ int main_rt()
 {
 	//target image
 	const auto aspect_ratio = 16.0 / 9.0;
-	const int image_width = 400;
+	const int image_width = 1920;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
 	const int sample_per_pixel = 100;
 	const int max_depth = 50;
@@ -71,7 +71,7 @@ int main_rt()
 	world.add(std::make_shared<Sphere>(vec3(-0.1, 0.2, -0.5), 0.12, full_glass));
 	world.add(std::make_shared<Sphere>(vec3(0, -0.05, -0.2), -0.05, hollow_glass));
 	//camera
-	camera cam(90, aspect_ratio);
+	camera cam(point3(-1, 0, 3), point3(0, 0, -1), vec3(0, 1, 0), 20, aspect_ratio);
 
 	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
 	std::vector<uint8_t> pixel_data;

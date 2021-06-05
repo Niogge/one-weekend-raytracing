@@ -14,3 +14,4 @@ point3 USE_NAMESPACE(Ray)::at(double t) const
 {
     return orig + t * dir;
 }
+
