@@ -27,6 +27,8 @@
     <ClInclude Include="src\Includes\stb_image.h" />
     <ClInclude Include="src\Includes\stb_image_write.h" />
     <ClInclude Include="src\Includes\wobj.h" />
+    <ClInclude Include="src\Includes\wobj_kdtree.h" />
+    <ClInclude Include="src\Includes\wobj_utils.h" />
     <ClInclude Include="src\Materials\Dielectric.h" />
     <ClInclude Include="src\Materials\Lambertian.h" />
     <ClInclude Include="src\Materials\Material.h" />

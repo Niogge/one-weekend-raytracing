@@ -56,10 +56,10 @@ int main_rt()
 {
 	//target image
 	const auto aspect_ratio = 16.0 / 9.0;
-	const int image_width = 400;
+	const int image_width = 2080;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
-	const int sample_per_pixel = 20;
-	const int max_depth = 50;
+	const int sample_per_pixel = 50;
+	const int max_depth = 10;
 	//world 
 	hittable_list world;
 
@@ -67,11 +67,10 @@ int main_rt()
 	shared_ptr<material> lambert_green = make_shared<lambertian>(RGBColor(93. / 255, 240. / 255, 67. / 255));
 	shared_ptr<material> full_glass = make_shared<dielectric>(RGBColor(0.8, 0.8, 1), 1.5);
 	shared_ptr<material> hollow_glass = make_shared<dielectric>(RGBColor(1, 1, 1), 1.2);// the hollowness is with the negative radius of the sphere 
-	//world.add(std::make_shared<Sphere>(vec3(-0.5,-0.1,-1.0),0.5, lambert_green));
-	//world.add(std::make_shared<Sphere>(vec3(0.5, 0.1, -1.1), 0.5, metal_purple));
-	//world.add(std::make_shared<Sphere>(vec3(-0.1, 0.2, -0.5), 0.12, full_glass));
-	//world.add(std::make_shared<Sphere>(vec3(0, -0.05, -0.2), -0.05, hollow_glass));
-	
+	//world.add(std::make_shared<Sphere>(vec3(-2,-0.5,-1.3),1, lambert_green));
+	//world.add(std::make_shared<Sphere>(vec3(2, 0.5, -1.0), 1, metal_purple));
+	//world.add(std::make_shared<Sphere>(vec3(-1, 0.2, -0.5), 0.5, full_glass));
+	//
 	world.add(std::make_shared<Model>("assets\\teapot.obj", vec3(0, 0, 0), metal_purple));
 	//camera
 	camera cam(point3(-1, -5, 0), point3(0, 0, -1), vec3(0, 1, 0), 30, aspect_ratio);
@@ -88,10 +87,10 @@ int main_rt()
 			RGBColor pixel_color(0, 0, 0);
 			for (int s = 0; s < sample_per_pixel; s++)
 			{
-				double u = double(i + random_double()) / (image_width - 1);
-				double v = double(j + random_double()) / (image_height - 1);
-			/*	double u = double(i ) / (image_width - 1);
-				double v = double(j ) / (image_height - 1);*/
+				/*double u = double(i + random_double()) / (image_width - 1);
+				double v = double(j + random_double()) / (image_height - 1);*/
+				double u = double(i ) / (image_width - 1);
+				double v = double(j ) / (image_height - 1);
 				Ray r = cam.get_ray(u,v);
 				pixel_color += ray_color(r, world,50);
 			}

@@ -138,4 +138,12 @@ inline vec3 from_wobj_to_vec3(const wobj_float3& f3)
 {
 	return vec3(f3.x, f3.y, f3.z);
 }
+inline wobj_float3 from_vec3_to_wobj(const vec3& v3)
+{
+	wobj_float3 f;
+	f.x = v3.x();
+	f.y = v3.y();
+	f.z = v3.z();
+	return f;
+}
 #endif // !VEC3_H
