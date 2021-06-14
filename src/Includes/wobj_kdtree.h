@@ -27,6 +27,7 @@ typedef struct{
 	float t_hit;
 } wobj_hit_result;
 
+
 static wobj_aabb_node* __aabb_build(wobj_float3 minb, wobj_float3 maxb, unsigned int depth)
 {
 	wobj_aabb_node* aabb = (wobj_aabb_node*)malloc(sizeof(wobj_aabb_node));
@@ -309,6 +310,7 @@ static void _recurse_aabb(wobj_aabb_node* parent, wobj_kdtree* kd)
 
 static wobj_kdtree* wobj_kdtree_from_file(const char* file_path, unsigned int max_depth)
 {
+
 	wobj_kdtree* wkd = (wobj_kdtree*)malloc(sizeof(wobj_kdtree));
 	wkd->model = wobj_from_file(file_path);
 	wobj_float3 min_b, max_b;

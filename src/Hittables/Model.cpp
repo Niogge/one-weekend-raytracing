@@ -8,7 +8,7 @@ USE_NAMESPACE(Model)::~Model()
 USE_NAMESPACE(Model)::Model(const std::string modelPath, vec3 c, std::shared_ptr<material> m)
 	: position(c), mat_ptr(m), object(nullptr)
 {
-	object = wobj_kdtree_from_file(modelPath.c_str(),6);
+	object = wobj_kdtree_from_file(modelPath.c_str(),15);
 
 }
 bool rayTriangle_intersection(const USE_NAMESPACE(Ray)& r, const vec3& v0, const vec3& v1, const vec3& v2, float& t_result)
@@ -58,6 +58,7 @@ bool USE_NAMESPACE(Model)::hit(const Ray& r, double t_min, double t_max, hit_rec
 		rec.set_face_normal(r, rec.normal);
 		return true;
 	}
+	
 
 	return false;
 	

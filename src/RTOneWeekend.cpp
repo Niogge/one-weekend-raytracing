@@ -56,9 +56,9 @@ int main_rt()
 {
 	//target image
 	const auto aspect_ratio = 16.0 / 9.0;
-	const int image_width = 2080;
+	const int image_width = 1920;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
-	const int sample_per_pixel = 50;
+	const int sample_per_pixel = 100;
 	const int max_depth = 10;
 	//world 
 	hittable_list world;
@@ -71,11 +71,14 @@ int main_rt()
 	//world.add(std::make_shared<Sphere>(vec3(2, 0.5, -1.0), 1, metal_purple));
 	//world.add(std::make_shared<Sphere>(vec3(-1, 0.2, -0.5), 0.5, full_glass));
 	//
-	world.add(std::make_shared<Model>("assets\\teapot.obj", vec3(0, 0, 0), metal_purple));
+	shared_ptr<Model> m = std::make_shared<Model>("assets\\bunny.obj", vec3(0, -1, 0), lambert_green);
+	std::cout << "Loaded model faces count: " << m->TriangleCount() << std::endl;
+	world.add(m);
 	//camera
-	camera cam(point3(-1, -5, 0), point3(0, 0, -1), vec3(0, 1, 0), 30, aspect_ratio);
+	camera cam(point3(0, 1, 10), point3(0, 0.5f, 0), vec3(0, 1, 0), 30, aspect_ratio);
 
-	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+
+	std::cout << image_width << " " << image_height << std::endl;
 	std::vector<uint8_t> pixel_data;
 
 
@@ -99,6 +102,9 @@ int main_rt()
 	}
 	stbi_write_png("test.png", image_width, image_height, IMG_CHANNELS, pixel_data.data(), IMG_CHANNELS * image_width);
 	PROGRESS_COMPLETE;
+	//std::cout << "Bruteforce ray triangle tests expected: " << m->TriangleCount() * image_width * image_height * sample_per_pixel << std::endl;
+	//std::cout << "Ray triangle tests done with kdtree: " << m->hit_count << std::endl;
+	//std::cout << "kdtree/bruteforce: " << static_cast<float>(m->hit_count) / static_cast<float>(m->TriangleCount() * image_width * image_height * sample_per_pixel) * 100 << "%" << std::endl;
 	return 0;
 }
 

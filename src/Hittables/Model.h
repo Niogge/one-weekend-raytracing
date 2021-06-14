@@ -11,10 +11,12 @@ public:
 	~Model();
 	Model(const std::string modelPath, vec3 c, std::shared_ptr<material> m);
 	virtual bool hit(const Ray& r, double t_min, double t_max, hit_record& rec) const;
+	int TriangleCount() { return object->model->faces_count; }
 public:
 	point3 position;
 	std::shared_ptr<material> mat_ptr;
 private:
 	wobj_kdtree* object;
+
 };
 END_NAMESPACE
